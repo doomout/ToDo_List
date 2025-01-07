@@ -31,7 +31,6 @@
             btn_add = new Button();
             btn_statistics = new Button();
             btn_set = new Button();
-            splitContainer1 = new SplitContainer();
             label4 = new Label();
             dtp_end = new DateTimePicker();
             btn_excel = new Button();
@@ -45,19 +44,21 @@
             title = new DataGridViewTextBoxColumn();
             description = new DataGridViewTextBoxColumn();
             created_at = new DataGridViewTextBoxColumn();
+            panel2 = new Panel();
             panel1 = new Panel();
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
-            splitContainer1.Panel1.SuspendLayout();
-            splitContainer1.Panel2.SuspendLayout();
-            splitContainer1.SuspendLayout();
+            panel3 = new Panel();
+            progressBar1 = new ProgressBar();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel2.SuspendLayout();
             panel1.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // btn_add
             // 
             btn_add.BackColor = SystemColors.ActiveCaption;
-            btn_add.Location = new Point(405, 34);
+            btn_add.Location = new Point(416, 47);
             btn_add.Name = "btn_add";
             btn_add.Size = new Size(109, 43);
             btn_add.TabIndex = 0;
@@ -67,7 +68,7 @@
             // btn_statistics
             // 
             btn_statistics.BackColor = Color.FromArgb(192, 255, 255);
-            btn_statistics.Location = new Point(520, 34);
+            btn_statistics.Location = new Point(531, 47);
             btn_statistics.Name = "btn_statistics";
             btn_statistics.Size = new Size(109, 43);
             btn_statistics.TabIndex = 1;
@@ -77,45 +78,17 @@
             // btn_set
             // 
             btn_set.BackColor = Color.FromArgb(255, 192, 255);
-            btn_set.Location = new Point(750, 34);
+            btn_set.Location = new Point(761, 47);
             btn_set.Name = "btn_set";
             btn_set.Size = new Size(109, 43);
             btn_set.TabIndex = 2;
-            btn_set.Text = "설정";
+            btn_set.Text = "반복 설정";
             btn_set.UseVisualStyleBackColor = false;
-            // 
-            // splitContainer1
-            // 
-            splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(0, 0);
-            splitContainer1.Name = "splitContainer1";
-            splitContainer1.Orientation = Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            splitContainer1.Panel1.Controls.Add(label4);
-            splitContainer1.Panel1.Controls.Add(dtp_end);
-            splitContainer1.Panel1.Controls.Add(btn_excel);
-            splitContainer1.Panel1.Controls.Add(label3);
-            splitContainer1.Panel1.Controls.Add(label2);
-            splitContainer1.Panel1.Controls.Add(dtp_start);
-            splitContainer1.Panel1.Controls.Add(label1);
-            splitContainer1.Panel1.Controls.Add(txt_select);
-            splitContainer1.Panel1.Controls.Add(btn_statistics);
-            splitContainer1.Panel1.Controls.Add(btn_set);
-            splitContainer1.Panel1.Controls.Add(btn_add);
-            // 
-            // splitContainer1.Panel2
-            // 
-            splitContainer1.Panel2.Controls.Add(panel1);
-            splitContainer1.Size = new Size(877, 557);
-            splitContainer1.SplitterDistance = 100;
-            splitContainer1.TabIndex = 3;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(713, 9);
+            label4.Location = new Point(724, 22);
             label4.Name = "label4";
             label4.Size = new Size(122, 15);
             label4.TabIndex = 11;
@@ -124,7 +97,7 @@
             // dtp_end
             // 
             dtp_end.Format = DateTimePickerFormat.Short;
-            dtp_end.Location = new Point(247, 51);
+            dtp_end.Location = new Point(258, 64);
             dtp_end.Name = "dtp_end";
             dtp_end.Size = new Size(105, 23);
             dtp_end.TabIndex = 10;
@@ -133,7 +106,7 @@
             // btn_excel
             // 
             btn_excel.BackColor = Color.FromArgb(0, 192, 0);
-            btn_excel.Location = new Point(635, 34);
+            btn_excel.Location = new Point(646, 47);
             btn_excel.Name = "btn_excel";
             btn_excel.Size = new Size(109, 43);
             btn_excel.TabIndex = 9;
@@ -143,7 +116,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 57);
+            label3.Location = new Point(23, 70);
             label3.Name = "label3";
             label3.Size = new Size(31, 15);
             label3.TabIndex = 8;
@@ -152,7 +125,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(202, 57);
+            label2.Location = new Point(213, 70);
             label2.Name = "label2";
             label2.Size = new Size(15, 15);
             label2.TabIndex = 7;
@@ -161,7 +134,7 @@
             // dtp_start
             // 
             dtp_start.Format = DateTimePickerFormat.Short;
-            dtp_start.Location = new Point(66, 51);
+            dtp_start.Location = new Point(77, 64);
             dtp_start.Name = "dtp_start";
             dtp_start.Size = new Size(105, 23);
             dtp_start.TabIndex = 5;
@@ -170,7 +143,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 15);
+            label1.Location = new Point(23, 28);
             label1.Name = "label1";
             label1.Size = new Size(31, 15);
             label1.TabIndex = 4;
@@ -178,7 +151,7 @@
             // 
             // txt_select
             // 
-            txt_select.Location = new Point(66, 12);
+            txt_select.Location = new Point(77, 25);
             txt_select.Name = "txt_select";
             txt_select.Size = new Size(286, 23);
             txt_select.TabIndex = 3;
@@ -191,11 +164,11 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { completed, title, description, created_at });
             dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(10, 10);
+            dataGridView1.Location = new Point(0, 0);
             dataGridView1.Margin = new Padding(10);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(857, 433);
+            dataGridView1.Size = new Size(877, 385);
             dataGridView1.TabIndex = 0;
             // 
             // completed
@@ -226,34 +199,79 @@
             created_at.Name = "created_at";
             created_at.ReadOnly = true;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(label4);
+            panel2.Controls.Add(txt_select);
+            panel2.Controls.Add(dtp_end);
+            panel2.Controls.Add(btn_add);
+            panel2.Controls.Add(btn_excel);
+            panel2.Controls.Add(btn_set);
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(btn_statistics);
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(dtp_start);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(877, 108);
+            panel2.TabIndex = 4;
+            // 
             // panel1
             // 
-            panel1.Controls.Add(dataGridView1);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(0, 0);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(progressBar1);
+            panel1.Dock = DockStyle.Bottom;
+            panel1.Location = new Point(0, 493);
             panel1.Name = "panel1";
-            panel1.Padding = new Padding(10);
-            panel1.Size = new Size(877, 453);
-            panel1.TabIndex = 1;
+            panel1.Size = new Size(877, 64);
+            panel1.TabIndex = 5;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(dataGridView1);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(0, 108);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(877, 385);
+            panel3.TabIndex = 6;
+            // 
+            // progressBar1
+            // 
+            progressBar1.Location = new Point(459, 23);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(394, 23);
+            progressBar1.TabIndex = 0;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(372, 27);
+            label5.Name = "label5";
+            label5.Size = new Size(43, 15);
+            label5.TabIndex = 1;
+            label5.Text = "달성율";
             // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(877, 557);
-            Controls.Add(splitContainer1);
+            Controls.Add(panel3);
+            Controls.Add(panel1);
+            Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Main";
             Text = "메인창";
-            splitContainer1.Panel1.ResumeLayout(false);
-            splitContainer1.Panel1.PerformLayout();
-            splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
-            splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -262,7 +280,6 @@
         private Button btn_add;
         private Button btn_statistics;
         private Button btn_set;
-        private SplitContainer splitContainer1;
         private Label label1;
         private TextBox txt_select;
         private DateTimePicker dtp_start;
@@ -276,6 +293,10 @@
         private Button btn_excel;
         private DateTimePicker dtp_end;
         private Label label4;
+        private Panel panel2;
         private Panel panel1;
+        private Panel panel3;
+        private Label label5;
+        private ProgressBar progressBar1;
     }
 }

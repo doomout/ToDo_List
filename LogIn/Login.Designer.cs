@@ -113,6 +113,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "계획형 인간";
             ResumeLayout(false);
             PerformLayout();
