@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ToDo_List.ToDo;
 
 namespace ToDo_List
 {
@@ -61,8 +62,8 @@ namespace ToDo_List
                     }
                 }
 
-                // 회원 가입
-                string signUpQuery = "INSERT INTO users (id, password) VALUES (@id, @password)";
+                // 회원 가입(비밀번호 암호화)
+                string signUpQuery = "INSERT INTO users (id, password) VALUES (@id, crypt(@password, gen_salt('bf')))";
                 using (var signUpCommand = new NpgsqlCommand(signUpQuery, conn))
                 {
                     signUpCommand.Parameters.AddWithValue("id", id);
@@ -75,10 +76,43 @@ namespace ToDo_List
                         if (result == 1)
                         {
                             MessageBox.Show("회원가입 성공");
+
+                            // 마지막 사용한 ID 저장
+                            string saveIdQuery = "INSERT INTO last_used_id (id) VALUES (@id) ON CONFLICT (id) DO UPDATE SET id = @id";
+                            using (var saveIdCommand = new NpgsqlCommand(saveIdQuery, conn))
+                            {
+                                saveIdCommand.Parameters.AddWithValue("id", id);
+                                saveIdCommand.ExecuteNonQuery();
+                            }
+
+                            // 자동 로그인
+                            string loginQuery = "SELECT COUNT(*) FROM users WHERE id = @id AND password = crypt(@password, password)";
+                            using (var loginCommand = new NpgsqlCommand(loginQuery, conn))
+                            {
+                                loginCommand.Parameters.AddWithValue("id", id);
+                                loginCommand.Parameters.AddWithValue("password", pw);
+
+                                long userCount = (long)loginCommand.ExecuteScalar();
+
+                                if (userCount > 0)
+                                {
+                                    MessageBox.Show("자동 로그인 성공");
+                                    // 로그인 성공 후 메인 폼 열기
+                                    Main mainForm = new Main();
+                                    mainForm.Show();
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("자동 로그인 실패");
+                                }
+                            }
+                            /*
                             // 회원가입 성공 후 Login 폼으로 이동
                             this.Close();
                             Login loginForm = new Login();
                             loginForm.Show();
+                            */
                         }
                         else
                         {

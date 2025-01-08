@@ -66,8 +66,10 @@
             // 
             txt_PW.Location = new Point(43, 61);
             txt_PW.Name = "txt_PW";
+            txt_PW.PasswordChar = '*';
             txt_PW.Size = new Size(194, 23);
             txt_PW.TabIndex = 3;
+            txt_PW.KeyDown += txt_PW_KeyDown;
             // 
             // btn_signup
             // 
@@ -92,11 +94,11 @@
             // chk_login
             // 
             chk_login.AutoSize = true;
-            chk_login.Location = new Point(147, 107);
+            chk_login.Location = new Point(147, 103);
             chk_login.Name = "chk_login";
             chk_login.Size = new Size(90, 19);
             chk_login.TabIndex = 6;
-            chk_login.Text = "로그인 유지";
+            chk_login.Text = "자동 로그인";
             chk_login.UseVisualStyleBackColor = true;
             // 
             // Login

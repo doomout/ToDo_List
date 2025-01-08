@@ -2,6 +2,8 @@
 1. C# 윈폼으로 개발
 2. DB는 PostgreSQL__16 사용
 3. Npgsql 패키지 사용(DB 연결)
+4. DB 암호화를 위해  pgcrypto 확장 사용
+	- CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
 ## 테이블 구조 (변경 가능)
 1. users 
