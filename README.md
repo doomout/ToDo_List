@@ -5,8 +5,8 @@
 
 ## 테이블 구조 (변경 가능)
 1. users 
- - id SERIAL PRIMARY KEY,       -- 고유 ID (자동 증가)
- - username VARCHAR(50) NOT NULL UNIQUE, -- 사용자 이름 (고유, NOT NULL)
+ - no SERIAL PRIMARY KEY,       -- 고유 ID (자동 증가)
+ - id VARCHAR(50) NOT NULL UNIQUE, -- 사용자 이름 (고유, NOT NULL)
  - password VARCHAR(255) NOT NULL -- 비밀번호 (NOT NULL)
 
 2. todo_list 
@@ -16,4 +16,15 @@
 - description TEXT,            -- 상세 설명 (NULL 허용)
 - is_completed BOOLEAN DEFAULT FALSE, -- 완료 여부 (기본값: false)
 - created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- 생성 시간
-- FOREIGN KEY (user_id) REFERENCES users (id) -- 외래 키 설정
+- FOREIGN KEY (user_id) REFERENCES users (no) -- 외래 키 설정
+
+## 화면 구성
+1. 로그인 화면
+![1](https://github.com/user-attachments/assets/dac3af9f-9a87-4919-96db-9948442f024e)
+
+2. 회원 가입 화면
+![2](https://github.com/user-attachments/assets/ecdd142d-d2dc-4b0e-a312-986a240379b9)
+
+3. 메인 화면
+![3](https://github.com/user-attachments/assets/e54eca2d-3a0c-490a-a5b9-e9d7ac20069c)
+
