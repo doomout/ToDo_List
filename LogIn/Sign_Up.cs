@@ -52,7 +52,7 @@ namespace ToDo_List
                 using (var checkIdCommand = new NpgsqlCommand(checkIdQuery, conn))
                 {
                     checkIdCommand.Parameters.AddWithValue("id", id);
-                    int idCount = (int)checkIdCommand.ExecuteScalar();
+                    long idCount = (long)checkIdCommand.ExecuteScalar();
 
                     if (idCount > 0)
                     {

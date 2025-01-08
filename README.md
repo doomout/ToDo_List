@@ -19,12 +19,12 @@
 - FOREIGN KEY (user_id) REFERENCES users (no) -- 외래 키 설정
 
 ## 화면 구성
-1. 로그인 화면
+1. 로그인 화면  
 ![1](https://github.com/user-attachments/assets/dac3af9f-9a87-4919-96db-9948442f024e)
 
-2. 회원 가입 화면
+2. 회원 가입 화면  
 ![2](https://github.com/user-attachments/assets/ecdd142d-d2dc-4b0e-a312-986a240379b9)
 
-3. 메인 화면
+3. 메인 화면  
 ![3](https://github.com/user-attachments/assets/e54eca2d-3a0c-490a-a5b9-e9d7ac20069c)
 

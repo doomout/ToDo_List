@@ -3,7 +3,7 @@
 public static class DatabaseManager
 {
     // PostgreSQL 연결 문자열
-    private static string connectionString = "Host=127.0.0.1;Username=doomout;Password=ska258;Database=book_manager";
+    private static string connectionString = "Host=127.0.0.1;Username=doomout;Password=ska258;Database=todo_list";
 
     // PostgreSQL 연결을 반환하는 메소드
     public static NpgsqlConnection GetConnection()

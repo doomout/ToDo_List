@@ -87,6 +87,7 @@
             txt_pw2.PasswordChar = '*';
             txt_pw2.Size = new Size(226, 23);
             txt_pw2.TabIndex = 5;
+            txt_pw2.TextChanged += txt_PW2_TextChanged;
             // 
             // btn_signUp
             // 
@@ -102,7 +103,7 @@
             // 
             lbl_PWCheck.AutoSize = true;
             lbl_PWCheck.ForeColor = Color.Red;
-            lbl_PWCheck.Location = new Point(108, 189);
+            lbl_PWCheck.Location = new Point(12, 189);
             lbl_PWCheck.Name = "lbl_PWCheck";
             lbl_PWCheck.Size = new Size(134, 15);
             lbl_PWCheck.TabIndex = 7;
