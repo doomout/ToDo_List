@@ -31,11 +31,11 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            button1 = new Button();
-            label4 = new Label();
+            txt_id = new TextBox();
+            txt_pw1 = new TextBox();
+            txt_pw2 = new TextBox();
+            btn_signUp = new Button();
+            lbl_PWCheck = new Label();
             SuspendLayout();
             // 
             // label1
@@ -65,56 +65,59 @@
             label3.TabIndex = 2;
             label3.Text = "비밀번호 확인";
             // 
-            // textBox1
+            // txt_id
             // 
-            textBox1.Location = new Point(12, 27);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(226, 23);
-            textBox1.TabIndex = 3;
+            txt_id.Location = new Point(12, 27);
+            txt_id.Name = "txt_id";
+            txt_id.Size = new Size(226, 23);
+            txt_id.TabIndex = 3;
             // 
-            // textBox2
+            // txt_pw1
             // 
-            textBox2.Location = new Point(12, 98);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(226, 23);
-            textBox2.TabIndex = 4;
+            txt_pw1.Location = new Point(12, 98);
+            txt_pw1.Name = "txt_pw1";
+            txt_pw1.PasswordChar = '*';
+            txt_pw1.Size = new Size(226, 23);
+            txt_pw1.TabIndex = 4;
             // 
-            // textBox3
+            // txt_pw2
             // 
-            textBox3.Location = new Point(12, 153);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(226, 23);
-            textBox3.TabIndex = 5;
+            txt_pw2.Location = new Point(12, 153);
+            txt_pw2.Name = "txt_pw2";
+            txt_pw2.PasswordChar = '*';
+            txt_pw2.Size = new Size(226, 23);
+            txt_pw2.TabIndex = 5;
             // 
-            // button1
+            // btn_signUp
             // 
-            button1.Location = new Point(163, 219);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 6;
-            button1.Text = "회원 가입";
-            button1.UseVisualStyleBackColor = true;
+            btn_signUp.Location = new Point(163, 219);
+            btn_signUp.Name = "btn_signUp";
+            btn_signUp.Size = new Size(75, 23);
+            btn_signUp.TabIndex = 6;
+            btn_signUp.Text = "회원 가입";
+            btn_signUp.UseVisualStyleBackColor = true;
+            btn_signUp.Click += btn_signUp_Click;
             // 
-            // label4
+            // lbl_PWCheck
             // 
-            label4.AutoSize = true;
-            label4.ForeColor = Color.Red;
-            label4.Location = new Point(108, 189);
-            label4.Name = "label4";
-            label4.Size = new Size(130, 15);
-            label4.TabIndex = 7;
-            label4.Text = "비밀번호는 8자리 이상";
+            lbl_PWCheck.AutoSize = true;
+            lbl_PWCheck.ForeColor = Color.Red;
+            lbl_PWCheck.Location = new Point(108, 189);
+            lbl_PWCheck.Name = "lbl_PWCheck";
+            lbl_PWCheck.Size = new Size(134, 15);
+            lbl_PWCheck.TabIndex = 7;
+            lbl_PWCheck.Text = "비밀 번호는 8자리 이상";
             // 
             // Sign_Up
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(253, 254);
-            Controls.Add(label4);
-            Controls.Add(button1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(lbl_PWCheck);
+            Controls.Add(btn_signUp);
+            Controls.Add(txt_pw2);
+            Controls.Add(txt_pw1);
+            Controls.Add(txt_id);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -133,10 +136,10 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private Button button1;
-        private Label label4;
+        private TextBox txt_id;
+        private TextBox txt_pw1;
+        private TextBox txt_pw2;
+        private Button btn_signUp;
+        private Label lbl_PWCheck;
     }
 }

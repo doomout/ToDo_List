@@ -30,8 +30,8 @@
         {
             label1 = new Label();
             label2 = new Label();
-            txt_id = new TextBox();
-            txt_pw = new TextBox();
+            txt_ID = new TextBox();
+            txt_PW = new TextBox();
             btn_signup = new Button();
             btn_login = new Button();
             chk_login = new CheckBox();
@@ -55,19 +55,19 @@
             label2.TabIndex = 1;
             label2.Text = "PW";
             // 
-            // txt_id
+            // txt_ID
             // 
-            txt_id.Location = new Point(44, 18);
-            txt_id.Name = "txt_id";
-            txt_id.Size = new Size(194, 23);
-            txt_id.TabIndex = 2;
+            txt_ID.Location = new Point(44, 18);
+            txt_ID.Name = "txt_ID";
+            txt_ID.Size = new Size(194, 23);
+            txt_ID.TabIndex = 2;
             // 
-            // txt_pw
+            // txt_PW
             // 
-            txt_pw.Location = new Point(43, 61);
-            txt_pw.Name = "txt_pw";
-            txt_pw.Size = new Size(194, 23);
-            txt_pw.TabIndex = 3;
+            txt_PW.Location = new Point(43, 61);
+            txt_PW.Name = "txt_PW";
+            txt_PW.Size = new Size(194, 23);
+            txt_PW.TabIndex = 3;
             // 
             // btn_signup
             // 
@@ -77,6 +77,7 @@
             btn_signup.TabIndex = 4;
             btn_signup.Text = "회원 가입";
             btn_signup.UseVisualStyleBackColor = true;
+            btn_signup.Click += btn_signup_Click;
             // 
             // btn_login
             // 
@@ -86,6 +87,7 @@
             btn_login.TabIndex = 5;
             btn_login.Text = "로그인";
             btn_login.UseVisualStyleBackColor = true;
+            btn_login.Click += btn_login_Click;
             // 
             // chk_login
             // 
@@ -105,8 +107,8 @@
             Controls.Add(chk_login);
             Controls.Add(btn_login);
             Controls.Add(btn_signup);
-            Controls.Add(txt_pw);
-            Controls.Add(txt_id);
+            Controls.Add(txt_PW);
+            Controls.Add(txt_ID);
             Controls.Add(label2);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -123,8 +125,8 @@
 
         private Label label1;
         private Label label2;
-        private TextBox txt_id;
-        private TextBox txt_pw;
+        private TextBox txt_ID;
+        private TextBox txt_PW;
         private Button btn_signup;
         private Button btn_login;
         private CheckBox chk_login;
