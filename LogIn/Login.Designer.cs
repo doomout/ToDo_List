@@ -34,7 +34,6 @@
             txt_PW = new TextBox();
             btn_signup = new Button();
             btn_login = new Button();
-            chk_login = new CheckBox();
             SuspendLayout();
             // 
             // label1
@@ -73,7 +72,7 @@
             // 
             // btn_signup
             // 
-            btn_signup.Location = new Point(64, 145);
+            btn_signup.Location = new Point(69, 109);
             btn_signup.Name = "btn_signup";
             btn_signup.Size = new Size(75, 23);
             btn_signup.TabIndex = 4;
@@ -83,7 +82,7 @@
             // 
             // btn_login
             // 
-            btn_login.Location = new Point(162, 145);
+            btn_login.Location = new Point(162, 109);
             btn_login.Name = "btn_login";
             btn_login.Size = new Size(75, 23);
             btn_login.TabIndex = 5;
@@ -91,22 +90,11 @@
             btn_login.UseVisualStyleBackColor = true;
             btn_login.Click += btn_login_Click;
             // 
-            // chk_login
-            // 
-            chk_login.AutoSize = true;
-            chk_login.Location = new Point(147, 103);
-            chk_login.Name = "chk_login";
-            chk_login.Size = new Size(90, 19);
-            chk_login.TabIndex = 6;
-            chk_login.Text = "자동 로그인";
-            chk_login.UseVisualStyleBackColor = true;
-            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(259, 188);
-            Controls.Add(chk_login);
+            ClientSize = new Size(259, 151);
             Controls.Add(btn_login);
             Controls.Add(btn_signup);
             Controls.Add(txt_PW);
@@ -131,6 +119,5 @@
         private TextBox txt_PW;
         private Button btn_signup;
         private Button btn_login;
-        private CheckBox chk_login;
     }
 }
