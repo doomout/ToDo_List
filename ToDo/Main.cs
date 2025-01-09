@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ToDo_List.User;
 
 namespace ToDo_List.ToDo
 {
@@ -27,6 +28,12 @@ namespace ToDo_List.ToDo
             Login login = new Login();
             login.Show();
             this.Hide();
+        }
+
+        private void btn_UserSet_Click(object sender, EventArgs e)
+        {
+            User_Set user_Set = new User_Set(userId);
+            user_Set.ShowDialog();
         }
     }
 }

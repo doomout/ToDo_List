@@ -45,11 +45,12 @@
             description = new DataGridViewTextBoxColumn();
             created_at = new DataGridViewTextBoxColumn();
             panel2 = new Panel();
+            btn_UserSet = new Button();
+            btn_Logout = new Button();
             panel1 = new Panel();
             label5 = new Label();
             progressBar1 = new ProgressBar();
             panel3 = new Panel();
-            btn_Logout = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -89,7 +90,7 @@
             // lbl_welcome
             // 
             lbl_welcome.AutoSize = true;
-            lbl_welcome.Location = new Point(662, 13);
+            lbl_welcome.Location = new Point(547, 13);
             lbl_welcome.Name = "lbl_welcome";
             lbl_welcome.Size = new Size(122, 15);
             lbl_welcome.TabIndex = 11;
@@ -202,6 +203,7 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(btn_UserSet);
             panel2.Controls.Add(btn_Logout);
             panel2.Controls.Add(lbl_welcome);
             panel2.Controls.Add(txt_select);
@@ -219,6 +221,26 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(877, 108);
             panel2.TabIndex = 4;
+            // 
+            // btn_UserSet
+            // 
+            btn_UserSet.Location = new Point(697, 9);
+            btn_UserSet.Name = "btn_UserSet";
+            btn_UserSet.Size = new Size(75, 23);
+            btn_UserSet.TabIndex = 13;
+            btn_UserSet.Text = "정보수정";
+            btn_UserSet.UseVisualStyleBackColor = true;
+            btn_UserSet.Click += btn_UserSet_Click;
+            // 
+            // btn_Logout
+            // 
+            btn_Logout.Location = new Point(790, 9);
+            btn_Logout.Name = "btn_Logout";
+            btn_Logout.Size = new Size(75, 23);
+            btn_Logout.TabIndex = 12;
+            btn_Logout.Text = "로그아웃";
+            btn_Logout.UseVisualStyleBackColor = true;
+            btn_Logout.Click += btn_Logout_Click;
             // 
             // panel1
             // 
@@ -254,16 +276,6 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(877, 385);
             panel3.TabIndex = 6;
-            // 
-            // btn_Logout
-            // 
-            btn_Logout.Location = new Point(790, 9);
-            btn_Logout.Name = "btn_Logout";
-            btn_Logout.Size = new Size(75, 23);
-            btn_Logout.TabIndex = 12;
-            btn_Logout.Text = "로그아웃";
-            btn_Logout.UseVisualStyleBackColor = true;
-            btn_Logout.Click += btn_Logout_Click;
             // 
             // Main
             // 
@@ -311,5 +323,6 @@
         private Label label5;
         private ProgressBar progressBar1;
         private Button btn_Logout;
+        private Button btn_UserSet;
     }
 }
