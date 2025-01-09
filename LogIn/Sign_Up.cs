@@ -98,7 +98,7 @@ namespace ToDo_List
                                 {
                                     MessageBox.Show("자동 로그인 성공");
                                     // 로그인 성공 후 메인 폼 열기
-                                    Main mainForm = new Main();
+                                    Main mainForm = new Main(id);
                                     mainForm.Show();
                                     this.Close();
                                 }

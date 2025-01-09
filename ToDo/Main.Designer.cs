@@ -31,7 +31,7 @@
             btn_add = new Button();
             btn_statistics = new Button();
             btn_set = new Button();
-            label4 = new Label();
+            lbl_welcome = new Label();
             dtp_end = new DateTimePicker();
             btn_excel = new Button();
             label3 = new Label();
@@ -46,9 +46,10 @@
             created_at = new DataGridViewTextBoxColumn();
             panel2 = new Panel();
             panel1 = new Panel();
-            panel3 = new Panel();
-            progressBar1 = new ProgressBar();
             label5 = new Label();
+            progressBar1 = new ProgressBar();
+            panel3 = new Panel();
+            btn_Logout = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -85,14 +86,14 @@
             btn_set.Text = "반복 설정";
             btn_set.UseVisualStyleBackColor = false;
             // 
-            // label4
+            // lbl_welcome
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(724, 22);
-            label4.Name = "label4";
-            label4.Size = new Size(122, 15);
-            label4.TabIndex = 11;
-            label4.Text = "김재벌님 반갑습니다.";
+            lbl_welcome.AutoSize = true;
+            lbl_welcome.Location = new Point(662, 13);
+            lbl_welcome.Name = "lbl_welcome";
+            lbl_welcome.Size = new Size(122, 15);
+            lbl_welcome.TabIndex = 11;
+            lbl_welcome.Text = "김재벌님 반갑습니다.";
             // 
             // dtp_end
             // 
@@ -201,7 +202,8 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(label4);
+            panel2.Controls.Add(btn_Logout);
+            panel2.Controls.Add(lbl_welcome);
             panel2.Controls.Add(txt_select);
             panel2.Controls.Add(dtp_end);
             panel2.Controls.Add(btn_add);
@@ -228,6 +230,22 @@
             panel1.Size = new Size(877, 64);
             panel1.TabIndex = 5;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(372, 27);
+            label5.Name = "label5";
+            label5.Size = new Size(43, 15);
+            label5.TabIndex = 1;
+            label5.Text = "달성율";
+            // 
+            // progressBar1
+            // 
+            progressBar1.Location = new Point(459, 23);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(394, 23);
+            progressBar1.TabIndex = 0;
+            // 
             // panel3
             // 
             panel3.Controls.Add(dataGridView1);
@@ -237,21 +255,15 @@
             panel3.Size = new Size(877, 385);
             panel3.TabIndex = 6;
             // 
-            // progressBar1
+            // btn_Logout
             // 
-            progressBar1.Location = new Point(459, 23);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(394, 23);
-            progressBar1.TabIndex = 0;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(372, 27);
-            label5.Name = "label5";
-            label5.Size = new Size(43, 15);
-            label5.TabIndex = 1;
-            label5.Text = "달성율";
+            btn_Logout.Location = new Point(790, 9);
+            btn_Logout.Name = "btn_Logout";
+            btn_Logout.Size = new Size(75, 23);
+            btn_Logout.TabIndex = 12;
+            btn_Logout.Text = "로그아웃";
+            btn_Logout.UseVisualStyleBackColor = true;
+            btn_Logout.Click += btn_Logout_Click;
             // 
             // Main
             // 
@@ -292,11 +304,12 @@
         private DataGridViewTextBoxColumn created_at;
         private Button btn_excel;
         private DateTimePicker dtp_end;
-        private Label label4;
+        private Label lbl_welcome;
         private Panel panel2;
         private Panel panel1;
         private Panel panel3;
         private Label label5;
         private ProgressBar progressBar1;
+        private Button btn_Logout;
     }
 }
