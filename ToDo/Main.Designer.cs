@@ -39,7 +39,7 @@
             dtp_start = new DateTimePicker();
             label1 = new Label();
             txt_select = new TextBox();
-            dataGridView1 = new DataGridView();
+            dgv_ToDoList = new DataGridView();
             completed = new DataGridViewCheckBoxColumn();
             title = new DataGridViewTextBoxColumn();
             description = new DataGridViewTextBoxColumn();
@@ -51,7 +51,7 @@
             label5 = new Label();
             progressBar1 = new ProgressBar();
             panel3 = new Panel();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_ToDoList).BeginInit();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
@@ -158,20 +158,20 @@
             txt_select.Size = new Size(286, 23);
             txt_select.TabIndex = 3;
             // 
-            // dataGridView1
+            // dgv_ToDoList
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.BorderStyle = BorderStyle.Fixed3D;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { completed, title, description, created_at });
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 0);
-            dataGridView1.Margin = new Padding(10);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(877, 385);
-            dataGridView1.TabIndex = 0;
+            dgv_ToDoList.AllowUserToAddRows = false;
+            dgv_ToDoList.AllowUserToDeleteRows = false;
+            dgv_ToDoList.BorderStyle = BorderStyle.Fixed3D;
+            dgv_ToDoList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_ToDoList.Columns.AddRange(new DataGridViewColumn[] { completed, title, description, created_at });
+            dgv_ToDoList.Dock = DockStyle.Fill;
+            dgv_ToDoList.Location = new Point(0, 0);
+            dgv_ToDoList.Margin = new Padding(10);
+            dgv_ToDoList.Name = "dgv_ToDoList";
+            dgv_ToDoList.ReadOnly = true;
+            dgv_ToDoList.Size = new Size(877, 385);
+            dgv_ToDoList.TabIndex = 0;
             // 
             // completed
             // 
@@ -270,7 +270,7 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(dataGridView1);
+            panel3.Controls.Add(dgv_ToDoList);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(0, 108);
             panel3.Name = "panel3";
@@ -290,7 +290,9 @@
             MinimizeBox = false;
             Name = "Main";
             Text = "메인창";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            FormClosed += Main_FormClosed;
+            Load += Main_Load;
+            ((System.ComponentModel.ISupportInitialize)dgv_ToDoList).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
@@ -307,7 +309,7 @@
         private Label label1;
         private TextBox txt_select;
         private DateTimePicker dtp_start;
-        private DataGridView dataGridView1;
+        private DataGridView dgv_ToDoList;
         private Label label3;
         private Label label2;
         private DataGridViewCheckBoxColumn completed;

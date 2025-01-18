@@ -39,12 +39,13 @@ namespace ToDo_List
                         // 로그인 성공 후 메인 폼 열기
                         Main mainForm = new Main(id);
                         mainForm.Show();
-                        this.Hide(); // 로그인 창 닫기
+                        this.Hide(); // 로그인 창 가리기
                     }
                     else
                     {
                         MessageBox.Show("로그인 실패: 아이디 또는 비밀번호가 잘못되었습니다.");
                     }
+                    
                 }
             }
         }
