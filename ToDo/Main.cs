@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 using ToDo_List.User;
 
 namespace ToDo_List.ToDo
@@ -21,8 +13,6 @@ namespace ToDo_List.ToDo
             this.userId = userId;
             this.lbl_welcome.Text = $"{userId} 님 반갑습니다!";
         }
-
-        
 
         private void btn_Logout_Click(object sender, EventArgs e)
         {
@@ -94,6 +84,24 @@ namespace ToDo_List.ToDo
             Application.Exit();
         }
 
+        private void dgv_ToDoList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // 'is_completed' 열을 처리
+            if (dgv_ToDoList.Columns[e.ColumnIndex].Name == "is_completed")
+            {
+                if (e.Value != null)
+                {
+                    // 'is_completed' 값이 true이면 "달성", false이면 "미달성"
+                    e.Value = (bool)e.Value ? "달성" : "미달성";
+                }
+            }
+        }
         
+        private void dgv_ToDoList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //셀 더블 클릭시 수정 창 열기
+            Update update = new Update();
+            update.ShowDialog();
+        }
     }
 }
