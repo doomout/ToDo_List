@@ -47,7 +47,7 @@
             label5 = new Label();
             progressBar1 = new ProgressBar();
             panel3 = new Panel();
-            completed = new DataGridViewCheckBoxColumn();
+            completed = new DataGridViewComboBoxColumn();
             title = new DataGridViewTextBoxColumn();
             description = new DataGridViewTextBoxColumn();
             created_at = new DataGridViewTextBoxColumn();
@@ -169,7 +169,7 @@
             dgv_ToDoList.Location = new Point(0, 0);
             dgv_ToDoList.Margin = new Padding(10);
             dgv_ToDoList.Name = "dgv_ToDoList";
-            dgv_ToDoList.ReadOnly = true;
+            dgv_ToDoList.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dgv_ToDoList.Size = new Size(877, 385);
             dgv_ToDoList.TabIndex = 0;
             // 
@@ -253,8 +253,9 @@
             // 
             completed.DataPropertyName = "is_completed";
             completed.HeaderText = "확인";
+            completed.Items.AddRange(new object[] { "안했어", "진행 중", "완료" });
             completed.Name = "completed";
-            completed.ReadOnly = true;
+            completed.Resizable = DataGridViewTriState.True;
             completed.Width = 70;
             // 
             // title
@@ -326,7 +327,7 @@
         private ProgressBar progressBar1;
         private Button btn_Logout;
         private Button btn_UserSet;
-        private DataGridViewCheckBoxColumn completed;
+        private DataGridViewComboBoxColumn completed;
         private DataGridViewTextBoxColumn title;
         private DataGridViewTextBoxColumn description;
         private DataGridViewTextBoxColumn created_at;

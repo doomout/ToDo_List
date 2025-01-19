@@ -60,6 +60,7 @@ namespace ToDo_List
 
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
+            //로그인 창을 Hide 하기에 이벤트가 발생하지 않으므로 강제 종료
             Application.Exit();
         }
     }

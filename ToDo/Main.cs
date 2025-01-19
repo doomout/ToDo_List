@@ -22,6 +22,8 @@ namespace ToDo_List.ToDo
             this.lbl_welcome.Text = $"{userId} 님 반갑습니다!";
         }
 
+        
+
         private void btn_Logout_Click(object sender, EventArgs e)
         {
             //로그 아웃시 로그인 창으로 이동
@@ -63,6 +65,24 @@ namespace ToDo_List.ToDo
                         {
                             dgv_ToDoList.Columns["id"].Visible = false;
                         }
+
+                        // 열 순서 설정
+                        if (dgv_ToDoList.Columns.Contains("is_completed"))
+                        {
+                            dgv_ToDoList.Columns["is_completed"].DisplayIndex = 0; // 확인
+                        }
+                        if (dgv_ToDoList.Columns.Contains("title"))
+                        {
+                            dgv_ToDoList.Columns["title"].DisplayIndex = 1; // 할일
+                        }
+                        if (dgv_ToDoList.Columns.Contains("description"))
+                        {
+                            dgv_ToDoList.Columns["description"].DisplayIndex = 2; // 할일 상세
+                        }
+                        if (dgv_ToDoList.Columns.Contains("created_at"))
+                        {
+                            dgv_ToDoList.Columns["created_at"].DisplayIndex = 3; // 생성일
+                        }
                     }
                 }
             }
@@ -73,5 +93,7 @@ namespace ToDo_List.ToDo
             //숨겨진 로그인 창 닫기
             Application.Exit();
         }
+
+        
     }
 }
