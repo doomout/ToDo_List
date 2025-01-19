@@ -40,10 +40,6 @@
             label1 = new Label();
             txt_select = new TextBox();
             dgv_ToDoList = new DataGridView();
-            completed = new DataGridViewCheckBoxColumn();
-            title = new DataGridViewTextBoxColumn();
-            description = new DataGridViewTextBoxColumn();
-            created_at = new DataGridViewTextBoxColumn();
             panel2 = new Panel();
             btn_UserSet = new Button();
             btn_Logout = new Button();
@@ -51,6 +47,10 @@
             label5 = new Label();
             progressBar1 = new ProgressBar();
             panel3 = new Panel();
+            completed = new DataGridViewCheckBoxColumn();
+            title = new DataGridViewTextBoxColumn();
+            description = new DataGridViewTextBoxColumn();
+            created_at = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgv_ToDoList).BeginInit();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -173,34 +173,6 @@
             dgv_ToDoList.Size = new Size(877, 385);
             dgv_ToDoList.TabIndex = 0;
             // 
-            // completed
-            // 
-            completed.HeaderText = "확인";
-            completed.Name = "completed";
-            completed.ReadOnly = true;
-            completed.Width = 70;
-            // 
-            // title
-            // 
-            title.HeaderText = "할 일 요약";
-            title.Name = "title";
-            title.ReadOnly = true;
-            title.Width = 200;
-            // 
-            // description
-            // 
-            description.HeaderText = "할 일 상세";
-            description.Name = "description";
-            description.ReadOnly = true;
-            description.Width = 400;
-            // 
-            // created_at
-            // 
-            created_at.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            created_at.HeaderText = "생성일";
-            created_at.Name = "created_at";
-            created_at.ReadOnly = true;
-            // 
             // panel2
             // 
             panel2.Controls.Add(btn_UserSet);
@@ -277,6 +249,38 @@
             panel3.Size = new Size(877, 385);
             panel3.TabIndex = 6;
             // 
+            // completed
+            // 
+            completed.DataPropertyName = "is_completed";
+            completed.HeaderText = "확인";
+            completed.Name = "completed";
+            completed.ReadOnly = true;
+            completed.Width = 70;
+            // 
+            // title
+            // 
+            title.DataPropertyName = "title";
+            title.HeaderText = "할 일";
+            title.Name = "title";
+            title.ReadOnly = true;
+            title.Width = 200;
+            // 
+            // description
+            // 
+            description.DataPropertyName = "description";
+            description.HeaderText = "할 일 상세";
+            description.Name = "description";
+            description.ReadOnly = true;
+            description.Width = 400;
+            // 
+            // created_at
+            // 
+            created_at.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            created_at.DataPropertyName = "created_at";
+            created_at.HeaderText = "생성일";
+            created_at.Name = "created_at";
+            created_at.ReadOnly = true;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -312,10 +316,6 @@
         private DataGridView dgv_ToDoList;
         private Label label3;
         private Label label2;
-        private DataGridViewCheckBoxColumn completed;
-        private DataGridViewTextBoxColumn title;
-        private DataGridViewTextBoxColumn description;
-        private DataGridViewTextBoxColumn created_at;
         private Button btn_excel;
         private DateTimePicker dtp_end;
         private Label lbl_welcome;
@@ -326,5 +326,9 @@
         private ProgressBar progressBar1;
         private Button btn_Logout;
         private Button btn_UserSet;
+        private DataGridViewCheckBoxColumn completed;
+        private DataGridViewTextBoxColumn title;
+        private DataGridViewTextBoxColumn description;
+        private DataGridViewTextBoxColumn created_at;
     }
 }

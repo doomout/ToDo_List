@@ -44,23 +44,24 @@ namespace ToDo_List.ToDo
         private void ToDo_List()
         {
             //폼 로드시 할 일 목록 불러오기
-            string query = "SELECT * FROM todo_list WHERE user_id = @user_id";
+            string query = "SELECT id, title, description, is_completed, created_at FROM todo_list WHERE user_id = @user_id";
             using (var conn = DatabaseManager.GetConnection())
             {
                 conn.Open();
                 using (var command = conn.CreateCommand())
                 {
                     command.CommandText = query;
-                    command.Parameters.AddWithValue("user_id", userId); //로그인한 사용자의 ID
+                    command.Parameters.AddWithValue("user_id", userId); // 로그인한 사용자의 ID
                     using (var reader = command.ExecuteReader())
                     {
-                        while (reader.Read())
+                        DataTable dataTable = new DataTable();
+                        dataTable.Load(reader);
+                        dgv_ToDoList.DataSource = dataTable;
+
+                        // 'id' 열 숨기기
+                        if (dgv_ToDoList.Columns["id"] != null)
                         {
-                            ListViewItem item = new ListViewItem(reader["id"].ToString()); //ID
-                            item.SubItems.Add(reader["title"].ToString()); //제목
-                            item.SubItems.Add(reader["description"].ToString()); //내용
-                            item.SubItems.Add(reader["is_completed"].ToString()); //완료 여부
-                            item.SubItems.Add(reader["created_at"].ToString()); //생성일
+                            dgv_ToDoList.Columns["id"].Visible = false;
                         }
                     }
                 }
