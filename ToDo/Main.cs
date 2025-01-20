@@ -17,6 +17,13 @@ namespace ToDo_List.ToDo
         }
 
         // CurrentCellDirtyStateChanged 이벤트 핸들러
+        /*
+        DataGridView는 기본적으로 셀 편집을 마친 후에 값이 변경되는데, 
+        체크박스 같은 컨트롤은 클릭하는 순간 바로 값이 바뀌기 때문에, 
+        그 순간에 CellValueChanged가 자동으로 트리거되지 않아요. 
+        그래서 체크박스를 클릭했을 때 값이 변경되도록 하려면 
+        CurrentCellDirtyStateChanged 이벤트를 활용해 값을 강제로 커밋하도록 해야 합니다.
+        */
         private void dgv_ToDoList_CurrentCellDirtyStateChanged(object? sender, EventArgs e)
         {
             if (dgv_ToDoList.IsCurrentCellDirty)
@@ -115,19 +122,6 @@ namespace ToDo_List.ToDo
         {
             //숨겨진 로그인 창 닫기
             Application.Exit();
-        }
-
-        private void dgv_ToDoList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            // 'is_completed' 열을 처리
-            if (dgv_ToDoList.Columns[e.ColumnIndex].Name == "is_completed")
-            {
-                if (e.Value != null)
-                {
-                    // 'is_completed' 값이 true이면 "달성", false이면 "미달성"
-                    e.Value = (bool)e.Value ? "달성" : "미달성";
-                }
-            }
         }
 
         private void dgv_ToDoList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

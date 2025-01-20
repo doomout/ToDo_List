@@ -175,7 +175,6 @@
             dgv_ToDoList.Size = new Size(877, 385);
             dgv_ToDoList.TabIndex = 0;
             dgv_ToDoList.CellDoubleClick += dgv_ToDoList_CellDoubleClick;
-            dgv_ToDoList.CellValueChanged += dgv_ToDoList_CellValueChanged;
             // 
             // is_completed
             // 
