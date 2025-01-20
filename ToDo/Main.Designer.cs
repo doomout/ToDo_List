@@ -40,7 +40,7 @@
             label1 = new Label();
             txt_select = new TextBox();
             dgv_ToDoList = new DataGridView();
-            is_completed = new DataGridViewTextBoxColumn();
+            is_completed = new DataGridViewCheckBoxColumn();
             title = new DataGridViewTextBoxColumn();
             description = new DataGridViewTextBoxColumn();
             created_at = new DataGridViewTextBoxColumn();
@@ -166,25 +166,23 @@
             dgv_ToDoList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_ToDoList.Columns.AddRange(new DataGridViewColumn[] { is_completed, title, description, created_at });
             dgv_ToDoList.Dock = DockStyle.Fill;
+            dgv_ToDoList.EditMode = DataGridViewEditMode.EditOnEnter;
             dgv_ToDoList.Location = new Point(0, 0);
             dgv_ToDoList.Margin = new Padding(10);
             dgv_ToDoList.MultiSelect = false;
             dgv_ToDoList.Name = "dgv_ToDoList";
-            dgv_ToDoList.ReadOnly = true;
             dgv_ToDoList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_ToDoList.Size = new Size(877, 385);
             dgv_ToDoList.TabIndex = 0;
             dgv_ToDoList.CellDoubleClick += dgv_ToDoList_CellDoubleClick;
-            dgv_ToDoList.CellFormatting += dgv_ToDoList_CellFormatting;
+            dgv_ToDoList.CellValueChanged += dgv_ToDoList_CellValueChanged;
             // 
             // is_completed
             // 
             is_completed.DataPropertyName = "is_completed";
             is_completed.HeaderText = "달성";
             is_completed.Name = "is_completed";
-            is_completed.ReadOnly = true;
             is_completed.Resizable = DataGridViewTriState.True;
-            is_completed.SortMode = DataGridViewColumnSortMode.NotSortable;
             is_completed.Width = 70;
             // 
             // title
@@ -192,7 +190,6 @@
             title.DataPropertyName = "title";
             title.HeaderText = "할 일";
             title.Name = "title";
-            title.ReadOnly = true;
             title.Width = 200;
             // 
             // description
@@ -200,7 +197,6 @@
             description.DataPropertyName = "description";
             description.HeaderText = "할 일 상세";
             description.Name = "description";
-            description.ReadOnly = true;
             description.Width = 400;
             // 
             // created_at
@@ -209,7 +205,6 @@
             created_at.DataPropertyName = "created_at";
             created_at.HeaderText = "생성일";
             created_at.Name = "created_at";
-            created_at.ReadOnly = true;
             // 
             // panel2
             // 
@@ -333,7 +328,7 @@
         private ProgressBar progressBar1;
         private Button btn_Logout;
         private Button btn_UserSet;
-        private DataGridViewTextBoxColumn is_completed;
+        private DataGridViewCheckBoxColumn is_completed;
         private DataGridViewTextBoxColumn title;
         private DataGridViewTextBoxColumn description;
         private DataGridViewTextBoxColumn created_at;

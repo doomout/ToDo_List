@@ -12,6 +12,17 @@ namespace ToDo_List.ToDo
             InitializeComponent();
             this.userId = userId;
             this.lbl_welcome.Text = $"{userId} 님 반갑습니다!";
+            dgv_ToDoList.CellValueChanged += dgv_ToDoList_CellValueChanged;
+            dgv_ToDoList.CurrentCellDirtyStateChanged += dgv_ToDoList_CurrentCellDirtyStateChanged;
+        }
+
+        // CurrentCellDirtyStateChanged 이벤트 핸들러
+        private void dgv_ToDoList_CurrentCellDirtyStateChanged(object? sender, EventArgs e)
+        {
+            if (dgv_ToDoList.IsCurrentCellDirty)
+            {
+                dgv_ToDoList.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
         }
 
         private void btn_Logout_Click(object sender, EventArgs e)
@@ -47,14 +58,36 @@ namespace ToDo_List.ToDo
                     using (var reader = command.ExecuteReader())
                     {
                         DataTable dataTable = new DataTable();
+                        dataTable.Columns.Add("id", typeof(int));
+                        dataTable.Columns.Add("is_completed", typeof(bool)); // bool로 명시
+                        dataTable.Columns.Add("title", typeof(string));
+                        dataTable.Columns.Add("description", typeof(string));
+                        dataTable.Columns.Add("created_at", typeof(DateTime));
                         dataTable.Load(reader);
+           
+                        // DataGridView에 데이터 바인딩
                         dgv_ToDoList.DataSource = dataTable;
+
+                        // DataGridView의 ReadOnly 설정
+                        foreach (DataGridViewColumn column in dgv_ToDoList.Columns)
+                        {
+                            if (column.Name == "is_completed")
+                            {
+                                column.ReadOnly = false; // 'is_completed' 열만 수정 가능
+                            }
+                            else
+                            {
+                                column.ReadOnly = true; // 나머지 열은 읽기 전용
+                            }
+                        }
 
                         // 'id' 열 숨기기
                         if (dgv_ToDoList.Columns["id"] != null)
                         {
                             dgv_ToDoList.Columns["id"].Visible = false;
                         }
+
+                        //Console.WriteLine(dataTable.Columns["is_completed"].ReadOnly); // false여야 수정 가능(확인용)
 
                         // 열 순서 설정
                         if (dgv_ToDoList.Columns.Contains("is_completed"))
@@ -96,12 +129,35 @@ namespace ToDo_List.ToDo
                 }
             }
         }
-        
+
         private void dgv_ToDoList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //셀 더블 클릭시 수정 창 열기
             Update update = new Update();
             update.ShowDialog();
+        }
+
+        private void dgv_ToDoList_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            //할일 체크박스 클릭시 is_completed 값 변경
+            if (dgv_ToDoList.Columns.Contains("is_completed") && e.ColumnIndex == dgv_ToDoList.Columns["is_completed"].Index)
+            {
+                int id = Convert.ToInt32(dgv_ToDoList.Rows[e.RowIndex].Cells["id"].Value);
+                bool isCompleted = Convert.ToBoolean(dgv_ToDoList.Rows[e.RowIndex].Cells["is_completed"].Value);
+
+                string query = "UPDATE todo_list SET is_completed = @is_completed WHERE id = @id";
+                using (var conn = DatabaseManager.GetConnection())
+                {
+                    conn.Open();
+                    using (var command = conn.CreateCommand())
+                    {
+                        command.CommandText = query;
+                        command.Parameters.AddWithValue("is_completed", isCompleted);
+                        command.Parameters.AddWithValue("id", id);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
         }
     }
 }
