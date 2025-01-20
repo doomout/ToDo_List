@@ -66,6 +66,7 @@
             btn_add.TabIndex = 0;
             btn_add.Text = "할 일 등록";
             btn_add.UseVisualStyleBackColor = false;
+            btn_add.Click += btn_add_Click;
             // 
             // btn_statistics
             // 

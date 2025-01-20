@@ -71,7 +71,7 @@ namespace ToDo_List.ToDo
                         dataTable.Columns.Add("description", typeof(string));
                         dataTable.Columns.Add("created_at", typeof(DateTime));
                         dataTable.Load(reader);
-           
+
                         // DataGridView에 데이터 바인딩
                         dgv_ToDoList.DataSource = dataTable;
 
@@ -126,9 +126,19 @@ namespace ToDo_List.ToDo
 
         private void dgv_ToDoList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //셀 더블 클릭시 수정 창 열기
-            Update update = new Update();
-            update.ShowDialog();
+            // 셀 더블 클릭시 수정 창 열기
+            if (e.RowIndex >= 0)
+            {
+                DataRow row = ((DataTable)dgv_ToDoList.DataSource).Rows[e.RowIndex];
+                Update_View updateForm = new Update_View(Update_View.Mode.Update, row);
+                updateForm.ShowDialog();
+            }
+        }
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            // 추가 버튼 클릭시 추가 창 열기
+            Update_View addForm = new Update_View(Update_View.Mode.Add);
+            addForm.ShowDialog();
         }
 
         private void dgv_ToDoList_CellValueChanged(object sender, DataGridViewCellEventArgs e)
