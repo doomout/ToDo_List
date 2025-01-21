@@ -37,7 +37,7 @@
             groupBox1 = new GroupBox();
             rdo_false = new RadioButton();
             rdo_true = new RadioButton();
-            btn_Update = new Button();
+            btn_UpdateOrAdd = new Button();
             btn_close = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -123,14 +123,15 @@
             rdo_true.Text = "달성";
             rdo_true.UseVisualStyleBackColor = true;
             // 
-            // btn_Update
+            // btn_UpdateOrAdd
             // 
-            btn_Update.Location = new Point(376, 379);
-            btn_Update.Name = "btn_Update";
-            btn_Update.Size = new Size(99, 61);
-            btn_Update.TabIndex = 8;
-            btn_Update.Text = "저장";
-            btn_Update.UseVisualStyleBackColor = true;
+            btn_UpdateOrAdd.Location = new Point(376, 379);
+            btn_UpdateOrAdd.Name = "btn_UpdateOrAdd";
+            btn_UpdateOrAdd.Size = new Size(99, 61);
+            btn_UpdateOrAdd.TabIndex = 8;
+            btn_UpdateOrAdd.Text = "저장";
+            btn_UpdateOrAdd.UseVisualStyleBackColor = true;
+            btn_UpdateOrAdd.Click += btn_UpdateOrAdd_Click;
             // 
             // btn_close
             // 
@@ -148,7 +149,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(620, 457);
             Controls.Add(btn_close);
-            Controls.Add(btn_Update);
+            Controls.Add(btn_UpdateOrAdd);
             Controls.Add(groupBox1);
             Controls.Add(mCal_create);
             Controls.Add(label3);
@@ -160,7 +161,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Update_View";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "할 일 수정";
             Load += Update_Load;
             groupBox1.ResumeLayout(false);
@@ -180,7 +181,7 @@
         private GroupBox groupBox1;
         private RadioButton rdo_false;
         private RadioButton rdo_true;
-        private Button btn_Update;
+        private Button btn_UpdateOrAdd;
         private Button btn_close;
     }
 }

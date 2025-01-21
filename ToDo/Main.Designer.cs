@@ -294,7 +294,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Main";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "메인창";
             FormClosed += Main_FormClosed;
             Load += Main_Load;

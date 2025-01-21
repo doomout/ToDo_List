@@ -51,7 +51,7 @@ namespace ToDo_List.ToDo
             ToDo_List();
         }
 
-        private void ToDo_List()
+        public void ToDo_List()
         {
             //폼 로드시 할 일 목록 불러오기
             string query = "SELECT id, title, description, is_completed, created_at FROM todo_list WHERE user_id = @user_id";
@@ -130,14 +130,14 @@ namespace ToDo_List.ToDo
             if (e.RowIndex >= 0)
             {
                 DataRow row = ((DataTable)dgv_ToDoList.DataSource).Rows[e.RowIndex];
-                Update_View updateForm = new Update_View(Update_View.Mode.Update, row);
+                Update_View updateForm = new Update_View(Update_View.Mode.Update, userId, row);
                 updateForm.ShowDialog();
             }
         }
         private void btn_add_Click(object sender, EventArgs e)
         {
             // 추가 버튼 클릭시 추가 창 열기
-            Update_View addForm = new Update_View(Update_View.Mode.Add);
+            Update_View addForm = new Update_View(Update_View.Mode.Add, userId);
             addForm.ShowDialog();
         }
 
