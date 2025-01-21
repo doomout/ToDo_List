@@ -97,22 +97,32 @@ namespace ToDo_List.ToDo
             using (var conn = DatabaseManager.GetConnection())
             {
                 conn.Open();
-                using (var command = conn.CreateCommand())
+
+                try
                 {
-                    command.CommandText = query;
-                    command.Parameters.AddWithValue("@user_id", userId);
-                    command.Parameters.AddWithValue("@title", txtTitle.Text);
-                    command.Parameters.AddWithValue("@description", txtDescription.Text);
-                    command.Parameters.AddWithValue("@created_at", mCalCreate.SelectionStart);
-                    command.Parameters.AddWithValue("@is_completed", rdoTrue.Checked);
-
-                    if (currentMode == Mode.Update && dataRow != null)
+                    using (var command = conn.CreateCommand())
                     {
-                        command.Parameters.AddWithValue("@id", dataRow["id"]);
-                    }
+                        command.CommandText = query;
+                        command.Parameters.AddWithValue("@user_id", userId);
+                        command.Parameters.AddWithValue("@title", txtTitle.Text);
+                        command.Parameters.AddWithValue("@description", txtDescription.Text);
+                        command.Parameters.AddWithValue("@created_at", mCalCreate.SelectionStart);
+                        command.Parameters.AddWithValue("@is_completed", rdoTrue.Checked);
 
-                    command.ExecuteNonQuery();
+                        if (currentMode == Mode.Update && dataRow != null)
+                        {
+                            command.Parameters.AddWithValue("@id", dataRow["id"]);
+                        }
+
+                        command.ExecuteNonQuery();
+                        Console.WriteLine("쿼리 성공: " + query);
+                    }
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("쿼리 실패: " + ex.Message);
+                }
+                
             }
             // 인서트 성공 시 메시지 표시 및 창 닫기
             MessageBox.Show("저장 완료");

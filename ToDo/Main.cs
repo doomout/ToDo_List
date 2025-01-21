@@ -76,21 +76,31 @@ namespace ToDo_List.ToDo
                 {
                     command.CommandText = query;
                     command.Parameters.AddWithValue("user_id", userId); // 로그인한 사용자의 ID
-                    using (var reader = command.ExecuteReader())
+
+                    try
                     {
-                        DataTable dataTable = new DataTable();
-                        dataTable.Columns.Add("id", typeof(int));
-                        dataTable.Columns.Add("is_completed", typeof(bool)); // bool로 명시
-                        dataTable.Columns.Add("title", typeof(string));
-                        dataTable.Columns.Add("description", typeof(string));
-                        dataTable.Columns.Add("created_at", typeof(DateTime));
-                        dataTable.Load(reader);
+                        using (var reader = command.ExecuteReader())
+                        {
+                            DataTable dataTable = new DataTable();
+                            dataTable.Columns.Add("id", typeof(int));
+                            dataTable.Columns.Add("is_completed", typeof(bool)); // bool로 명시
+                            dataTable.Columns.Add("title", typeof(string));
+                            dataTable.Columns.Add("description", typeof(string));
+                            dataTable.Columns.Add("created_at", typeof(DateTime));
+                            dataTable.Load(reader);
 
-                        // DataGridView에 데이터 바인딩
-                        dgvTodoList.DataSource = dataTable;
+                            // DataGridView에 데이터 바인딩
+                            dgvTodoList.DataSource = dataTable;
 
-                        ConfigureDataGridView(dgvTodoList);
+                            ConfigureDataGridView(dgvTodoList);
+                            Console.WriteLine("쿼리 성공: " + query);
+                        }
                     }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("쿼리 실패: " + ex.Message);
+                    }
+                    
                 }
             }
         }
@@ -176,7 +186,16 @@ namespace ToDo_List.ToDo
                         command.CommandText = query;
                         command.Parameters.AddWithValue("is_completed", isCompleted);
                         command.Parameters.AddWithValue("id", id);
-                        command.ExecuteNonQuery();
+
+                        try
+                        {
+                            command.ExecuteNonQuery();
+                            Console.WriteLine("쿼리 성공: " + query);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("쿼리 실패: " + ex.Message);
+                        }
                     }
                 }
             }
