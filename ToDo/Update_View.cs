@@ -8,12 +8,14 @@ namespace ToDo_List.ToDo
         private Mode currentMode;
         private DataRow dataRow;
         private string userId; // user_id 필드 추가
+        private Main mainForm; // Main 폼 참조
 
-        public Update_View(Mode mode, string userId,  DataRow row = null)
+        public Update_View(Mode mode, string userId, Main mainForm,  DataRow row = null)
         {
             InitializeComponent();
             currentMode = mode;
             this.userId = userId; // user_id 저장
+            this.mainForm = mainForm; // Main 폼 인스턴스 저장
             dataRow = row;
         }
 
@@ -114,6 +116,9 @@ namespace ToDo_List.ToDo
             }
             // 인서트 성공 시 메시지 표시 및 창 닫기
             MessageBox.Show("저장 완료");
+
+            // Main 폼의 데이터 새로 고침 메서드 호출
+            mainForm?.RefreshData();
             this.Close();
         }
 
