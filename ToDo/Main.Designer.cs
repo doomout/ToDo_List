@@ -28,65 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btn_add = new Button();
-            btn_statistics = new Button();
-            btn_set = new Button();
+            btnAdd = new Button();
+            btnStatistics = new Button();
+            btnSet = new Button();
             lbl_welcome = new Label();
-            dtp_end = new DateTimePicker();
-            btn_excel = new Button();
+            dtpEnd = new DateTimePicker();
+            btnExcel = new Button();
             label3 = new Label();
             label2 = new Label();
-            dtp_start = new DateTimePicker();
+            dtpStart = new DateTimePicker();
             label1 = new Label();
-            txt_select = new TextBox();
-            dgv_ToDoList = new DataGridView();
+            txtSelect = new TextBox();
+            dgvTodoList = new DataGridView();
             is_completed = new DataGridViewCheckBoxColumn();
             title = new DataGridViewTextBoxColumn();
             description = new DataGridViewTextBoxColumn();
             created_at = new DataGridViewTextBoxColumn();
             panel2 = new Panel();
-            btn_UserSet = new Button();
-            btn_Logout = new Button();
+            btnUserSet = new Button();
+            btnLogout = new Button();
             panel1 = new Panel();
             label5 = new Label();
             progressBar1 = new ProgressBar();
             panel3 = new Panel();
-            ((System.ComponentModel.ISupportInitialize)dgv_ToDoList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTodoList).BeginInit();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
-            // btn_add
+            // btnAdd
             // 
-            btn_add.BackColor = SystemColors.ActiveCaption;
-            btn_add.Location = new Point(416, 47);
-            btn_add.Name = "btn_add";
-            btn_add.Size = new Size(109, 43);
-            btn_add.TabIndex = 0;
-            btn_add.Text = "할 일 등록";
-            btn_add.UseVisualStyleBackColor = false;
-            btn_add.Click += btn_add_Click;
+            btnAdd.BackColor = SystemColors.ActiveCaption;
+            btnAdd.Location = new Point(416, 47);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(109, 43);
+            btnAdd.TabIndex = 0;
+            btnAdd.Text = "할 일 등록";
+            btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btn_add_Click;
             // 
-            // btn_statistics
+            // btnStatistics
             // 
-            btn_statistics.BackColor = Color.FromArgb(192, 255, 255);
-            btn_statistics.Location = new Point(531, 47);
-            btn_statistics.Name = "btn_statistics";
-            btn_statistics.Size = new Size(109, 43);
-            btn_statistics.TabIndex = 1;
-            btn_statistics.Text = "통계 보기";
-            btn_statistics.UseVisualStyleBackColor = false;
+            btnStatistics.BackColor = Color.FromArgb(192, 255, 255);
+            btnStatistics.Location = new Point(531, 47);
+            btnStatistics.Name = "btnStatistics";
+            btnStatistics.Size = new Size(109, 43);
+            btnStatistics.TabIndex = 1;
+            btnStatistics.Text = "통계 보기";
+            btnStatistics.UseVisualStyleBackColor = false;
             // 
-            // btn_set
+            // btnSet
             // 
-            btn_set.BackColor = Color.FromArgb(255, 192, 255);
-            btn_set.Location = new Point(761, 47);
-            btn_set.Name = "btn_set";
-            btn_set.Size = new Size(109, 43);
-            btn_set.TabIndex = 2;
-            btn_set.Text = "반복 설정";
-            btn_set.UseVisualStyleBackColor = false;
+            btnSet.BackColor = Color.FromArgb(255, 192, 255);
+            btnSet.Location = new Point(761, 47);
+            btnSet.Name = "btnSet";
+            btnSet.Size = new Size(109, 43);
+            btnSet.TabIndex = 2;
+            btnSet.Text = "반복 설정";
+            btnSet.UseVisualStyleBackColor = false;
             // 
             // lbl_welcome
             // 
@@ -97,24 +97,24 @@
             lbl_welcome.TabIndex = 11;
             lbl_welcome.Text = "김재벌님 반갑습니다.";
             // 
-            // dtp_end
+            // dtpEnd
             // 
-            dtp_end.Format = DateTimePickerFormat.Short;
-            dtp_end.Location = new Point(258, 64);
-            dtp_end.Name = "dtp_end";
-            dtp_end.Size = new Size(105, 23);
-            dtp_end.TabIndex = 10;
-            dtp_end.Value = new DateTime(2025, 1, 7, 0, 0, 0, 0);
+            dtpEnd.Format = DateTimePickerFormat.Short;
+            dtpEnd.Location = new Point(258, 64);
+            dtpEnd.Name = "dtpEnd";
+            dtpEnd.Size = new Size(105, 23);
+            dtpEnd.TabIndex = 10;
+            dtpEnd.Value = new DateTime(2025, 1, 7, 0, 0, 0, 0);
             // 
-            // btn_excel
+            // btnExcel
             // 
-            btn_excel.BackColor = Color.FromArgb(0, 192, 0);
-            btn_excel.Location = new Point(646, 47);
-            btn_excel.Name = "btn_excel";
-            btn_excel.Size = new Size(109, 43);
-            btn_excel.TabIndex = 9;
-            btn_excel.Text = "엑셀 저장";
-            btn_excel.UseVisualStyleBackColor = false;
+            btnExcel.BackColor = Color.FromArgb(0, 192, 0);
+            btnExcel.Location = new Point(646, 47);
+            btnExcel.Name = "btnExcel";
+            btnExcel.Size = new Size(109, 43);
+            btnExcel.TabIndex = 9;
+            btnExcel.Text = "엑셀 저장";
+            btnExcel.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -134,14 +134,14 @@
             label2.TabIndex = 7;
             label2.Text = "~";
             // 
-            // dtp_start
+            // dtpStart
             // 
-            dtp_start.Format = DateTimePickerFormat.Short;
-            dtp_start.Location = new Point(77, 64);
-            dtp_start.Name = "dtp_start";
-            dtp_start.Size = new Size(105, 23);
-            dtp_start.TabIndex = 5;
-            dtp_start.Value = new DateTime(2025, 1, 7, 0, 0, 0, 0);
+            dtpStart.Format = DateTimePickerFormat.Short;
+            dtpStart.Location = new Point(77, 64);
+            dtpStart.Name = "dtpStart";
+            dtpStart.Size = new Size(105, 23);
+            dtpStart.TabIndex = 5;
+            dtpStart.Value = new DateTime(2025, 1, 7, 0, 0, 0, 0);
             // 
             // label1
             // 
@@ -152,30 +152,30 @@
             label1.TabIndex = 4;
             label1.Text = "검색";
             // 
-            // txt_select
+            // txtSelect
             // 
-            txt_select.Location = new Point(77, 25);
-            txt_select.Name = "txt_select";
-            txt_select.Size = new Size(286, 23);
-            txt_select.TabIndex = 3;
+            txtSelect.Location = new Point(77, 25);
+            txtSelect.Name = "txtSelect";
+            txtSelect.Size = new Size(286, 23);
+            txtSelect.TabIndex = 3;
             // 
-            // dgv_ToDoList
+            // dgvTodoList
             // 
-            dgv_ToDoList.AllowUserToAddRows = false;
-            dgv_ToDoList.AllowUserToDeleteRows = false;
-            dgv_ToDoList.BorderStyle = BorderStyle.Fixed3D;
-            dgv_ToDoList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_ToDoList.Columns.AddRange(new DataGridViewColumn[] { is_completed, title, description, created_at });
-            dgv_ToDoList.Dock = DockStyle.Fill;
-            dgv_ToDoList.EditMode = DataGridViewEditMode.EditOnEnter;
-            dgv_ToDoList.Location = new Point(0, 0);
-            dgv_ToDoList.Margin = new Padding(10);
-            dgv_ToDoList.MultiSelect = false;
-            dgv_ToDoList.Name = "dgv_ToDoList";
-            dgv_ToDoList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_ToDoList.Size = new Size(877, 385);
-            dgv_ToDoList.TabIndex = 0;
-            dgv_ToDoList.CellDoubleClick += dgv_ToDoList_CellDoubleClick;
+            dgvTodoList.AllowUserToAddRows = false;
+            dgvTodoList.AllowUserToDeleteRows = false;
+            dgvTodoList.BorderStyle = BorderStyle.Fixed3D;
+            dgvTodoList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvTodoList.Columns.AddRange(new DataGridViewColumn[] { is_completed, title, description, created_at });
+            dgvTodoList.Dock = DockStyle.Fill;
+            dgvTodoList.EditMode = DataGridViewEditMode.EditOnEnter;
+            dgvTodoList.Location = new Point(0, 0);
+            dgvTodoList.Margin = new Padding(10);
+            dgvTodoList.MultiSelect = false;
+            dgvTodoList.Name = "dgvTodoList";
+            dgvTodoList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvTodoList.Size = new Size(877, 385);
+            dgvTodoList.TabIndex = 0;
+            dgvTodoList.CellDoubleClick += dgv_ToDoList_CellDoubleClick;
             // 
             // is_completed
             // 
@@ -208,44 +208,44 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(btn_UserSet);
-            panel2.Controls.Add(btn_Logout);
+            panel2.Controls.Add(btnUserSet);
+            panel2.Controls.Add(btnLogout);
             panel2.Controls.Add(lbl_welcome);
-            panel2.Controls.Add(txt_select);
-            panel2.Controls.Add(dtp_end);
-            panel2.Controls.Add(btn_add);
-            panel2.Controls.Add(btn_excel);
-            panel2.Controls.Add(btn_set);
+            panel2.Controls.Add(txtSelect);
+            panel2.Controls.Add(dtpEnd);
+            panel2.Controls.Add(btnAdd);
+            panel2.Controls.Add(btnExcel);
+            panel2.Controls.Add(btnSet);
             panel2.Controls.Add(label3);
-            panel2.Controls.Add(btn_statistics);
+            panel2.Controls.Add(btnStatistics);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
-            panel2.Controls.Add(dtp_start);
+            panel2.Controls.Add(dtpStart);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(877, 108);
             panel2.TabIndex = 4;
             // 
-            // btn_UserSet
+            // btnUserSet
             // 
-            btn_UserSet.Location = new Point(697, 9);
-            btn_UserSet.Name = "btn_UserSet";
-            btn_UserSet.Size = new Size(75, 23);
-            btn_UserSet.TabIndex = 13;
-            btn_UserSet.Text = "정보수정";
-            btn_UserSet.UseVisualStyleBackColor = true;
-            btn_UserSet.Click += btn_UserSet_Click;
+            btnUserSet.Location = new Point(697, 9);
+            btnUserSet.Name = "btnUserSet";
+            btnUserSet.Size = new Size(75, 23);
+            btnUserSet.TabIndex = 13;
+            btnUserSet.Text = "정보수정";
+            btnUserSet.UseVisualStyleBackColor = true;
+            btnUserSet.Click += btn_UserSet_Click;
             // 
-            // btn_Logout
+            // btnLogout
             // 
-            btn_Logout.Location = new Point(790, 9);
-            btn_Logout.Name = "btn_Logout";
-            btn_Logout.Size = new Size(75, 23);
-            btn_Logout.TabIndex = 12;
-            btn_Logout.Text = "로그아웃";
-            btn_Logout.UseVisualStyleBackColor = true;
-            btn_Logout.Click += btn_Logout_Click;
+            btnLogout.Location = new Point(790, 9);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(75, 23);
+            btnLogout.TabIndex = 12;
+            btnLogout.Text = "로그아웃";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btn_Logout_Click;
             // 
             // panel1
             // 
@@ -275,7 +275,7 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(dgv_ToDoList);
+            panel3.Controls.Add(dgvTodoList);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(0, 108);
             panel3.Name = "panel3";
@@ -298,7 +298,7 @@
             Text = "메인창";
             FormClosed += Main_FormClosed;
             Load += Main_Load;
-            ((System.ComponentModel.ISupportInitialize)dgv_ToDoList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTodoList).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
@@ -309,25 +309,25 @@
 
         #endregion
 
-        private Button btn_add;
-        private Button btn_statistics;
-        private Button btn_set;
+        private Button btnAdd;
+        private Button btnStatistics;
+        private Button btnSet;
         private Label label1;
-        private TextBox txt_select;
-        private DateTimePicker dtp_start;
-        private DataGridView dgv_ToDoList;
+        private TextBox txtSelect;
+        private DateTimePicker dtpStart;
+        private DataGridView dgvTodoList;
         private Label label3;
         private Label label2;
-        private Button btn_excel;
-        private DateTimePicker dtp_end;
+        private Button btnExcel;
+        private DateTimePicker dtpEnd;
         private Label lbl_welcome;
         private Panel panel2;
         private Panel panel1;
         private Panel panel3;
         private Label label5;
         private ProgressBar progressBar1;
-        private Button btn_Logout;
-        private Button btn_UserSet;
+        private Button btnLogout;
+        private Button btnUserSet;
         private DataGridViewCheckBoxColumn is_completed;
         private DataGridViewTextBoxColumn title;
         private DataGridViewTextBoxColumn description;

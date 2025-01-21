@@ -3,14 +3,14 @@
 
 namespace ToDo_List.ToDo
 {
-    public partial class Update_View : Form
+    public partial class updateView : Form
     {
         private Mode currentMode;
         private DataRow dataRow;
         private string userId; // user_id 필드 추가
         private Main mainForm; // Main 폼 참조
 
-        public Update_View(Mode mode, string userId, Main mainForm,  DataRow row = null)
+        public updateView(Mode mode, string userId, Main mainForm,  DataRow row = null)
         {
             InitializeComponent();
             currentMode = mode;
@@ -31,31 +31,31 @@ namespace ToDo_List.ToDo
             if (currentMode == Mode.Add)
             {
                 this.Text = "할 일 추가";
-                this.btn_UpdateOrAdd.Text = "추가";
+                this.btnUpdateOrAdd.Text = "추가";
             }
             else if (currentMode == Mode.Update)
             {
                 this.Text = "할 일 수정";
-                this.btn_UpdateOrAdd.Text = "수정";
+                this.btnUpdateOrAdd.Text = "수정";
 
                 // 데이터 그리드뷰에서 정보를 가져와서 폼에 표시
                 if (dataRow != null)
                 {
-                    txt_Title.Text = dataRow["title"].ToString();
-                    txt_Description.Text = dataRow["description"].ToString();
+                    txtTitle.Text = dataRow["title"].ToString();
+                    txtDescription.Text = dataRow["description"].ToString();
 
                     // created_at 값을 DateTime으로 변환하여 MonthCalendar에 설정
                     DateTime createdAt = Convert.ToDateTime(dataRow["created_at"]);
-                    mCal_create.SelectionStart = createdAt;
-                    mCal_create.SelectionEnd = createdAt;
+                    mCalCreate.SelectionStart = createdAt;
+                    mCalCreate.SelectionEnd = createdAt;
 
                     if (Convert.ToBoolean(dataRow["is_completed"]))
                     {
-                        rdo_true.Checked = true;
+                        rdoTrue.Checked = true;
                     }
                     else
                     {
-                        rdo_false.Checked = true;
+                        rdoFalse.Checked = true;
                     }
                 }
             }
@@ -69,7 +69,7 @@ namespace ToDo_List.ToDo
         private void addOrUpdate(Mode addOrUpdte)
         {
             // 입력값 검사
-            if (txt_Title.Text == "")
+            if (txtTitle.Text == "")
             {
                 MessageBox.Show("할 일을 입력해주세요.");
                 return;
@@ -101,10 +101,10 @@ namespace ToDo_List.ToDo
                 {
                     command.CommandText = query;
                     command.Parameters.AddWithValue("@user_id", userId);
-                    command.Parameters.AddWithValue("@title", txt_Title.Text);
-                    command.Parameters.AddWithValue("@description", txt_Description.Text);
-                    command.Parameters.AddWithValue("@created_at", mCal_create.SelectionStart);
-                    command.Parameters.AddWithValue("@is_completed", rdo_true.Checked);
+                    command.Parameters.AddWithValue("@title", txtTitle.Text);
+                    command.Parameters.AddWithValue("@description", txtDescription.Text);
+                    command.Parameters.AddWithValue("@created_at", mCalCreate.SelectionStart);
+                    command.Parameters.AddWithValue("@is_completed", rdoTrue.Checked);
 
                     if (currentMode == Mode.Update && dataRow != null)
                     {

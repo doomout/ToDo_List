@@ -1,6 +1,6 @@
 ﻿namespace ToDo_List.ToDo
 {
-    partial class Update_View
+    partial class updateView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txt_Title = new TextBox();
+            txtTitle = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            txt_Description = new TextBox();
+            txtDescription = new TextBox();
             label3 = new Label();
-            mCal_create = new MonthCalendar();
+            mCalCreate = new MonthCalendar();
             groupBox1 = new GroupBox();
-            rdo_false = new RadioButton();
-            rdo_true = new RadioButton();
-            btn_UpdateOrAdd = new Button();
-            btn_close = new Button();
+            rdoFalse = new RadioButton();
+            rdoTrue = new RadioButton();
+            btnUpdateOrAdd = new Button();
+            btnClose = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // txt_Title
+            // txtTitle
             // 
-            txt_Title.Location = new Point(12, 36);
-            txt_Title.Name = "txt_Title";
-            txt_Title.Size = new Size(334, 23);
-            txt_Title.TabIndex = 0;
+            txtTitle.Location = new Point(12, 36);
+            txtTitle.Name = "txtTitle";
+            txtTitle.Size = new Size(334, 23);
+            txtTitle.TabIndex = 0;
             // 
             // label1
             // 
@@ -67,13 +67,13 @@
             label2.TabIndex = 2;
             label2.Text = "할 일 상세";
             // 
-            // txt_Description
+            // txtDescription
             // 
-            txt_Description.Location = new Point(12, 110);
-            txt_Description.Multiline = true;
-            txt_Description.Name = "txt_Description";
-            txt_Description.Size = new Size(334, 330);
-            txt_Description.TabIndex = 3;
+            txtDescription.Location = new Point(12, 110);
+            txtDescription.Multiline = true;
+            txtDescription.Name = "txtDescription";
+            txtDescription.Size = new Size(334, 330);
+            txtDescription.TabIndex = 3;
             // 
             // label3
             // 
@@ -84,16 +84,16 @@
             label3.TabIndex = 4;
             label3.Text = "생성일";
             // 
-            // mCal_create
+            // mCalCreate
             // 
-            mCal_create.Location = new Point(376, 36);
-            mCal_create.Name = "mCal_create";
-            mCal_create.TabIndex = 6;
+            mCalCreate.Location = new Point(376, 36);
+            mCalCreate.Name = "mCalCreate";
+            mCalCreate.TabIndex = 6;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(rdo_false);
-            groupBox1.Controls.Add(rdo_true);
+            groupBox1.Controls.Add(rdoFalse);
+            groupBox1.Controls.Add(rdoTrue);
             groupBox1.Location = new Point(376, 236);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(220, 118);
@@ -101,66 +101,66 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "달성 여부";
             // 
-            // rdo_false
+            // rdoFalse
             // 
-            rdo_false.AutoSize = true;
-            rdo_false.Checked = true;
-            rdo_false.Location = new Point(38, 77);
-            rdo_false.Name = "rdo_false";
-            rdo_false.Size = new Size(61, 19);
-            rdo_false.TabIndex = 1;
-            rdo_false.TabStop = true;
-            rdo_false.Text = "미달성";
-            rdo_false.UseVisualStyleBackColor = true;
+            rdoFalse.AutoSize = true;
+            rdoFalse.Checked = true;
+            rdoFalse.Location = new Point(38, 77);
+            rdoFalse.Name = "rdoFalse";
+            rdoFalse.Size = new Size(61, 19);
+            rdoFalse.TabIndex = 1;
+            rdoFalse.TabStop = true;
+            rdoFalse.Text = "미달성";
+            rdoFalse.UseVisualStyleBackColor = true;
             // 
-            // rdo_true
+            // rdoTrue
             // 
-            rdo_true.AutoSize = true;
-            rdo_true.Location = new Point(38, 32);
-            rdo_true.Name = "rdo_true";
-            rdo_true.Size = new Size(49, 19);
-            rdo_true.TabIndex = 0;
-            rdo_true.Text = "달성";
-            rdo_true.UseVisualStyleBackColor = true;
+            rdoTrue.AutoSize = true;
+            rdoTrue.Location = new Point(38, 32);
+            rdoTrue.Name = "rdoTrue";
+            rdoTrue.Size = new Size(49, 19);
+            rdoTrue.TabIndex = 0;
+            rdoTrue.Text = "달성";
+            rdoTrue.UseVisualStyleBackColor = true;
             // 
-            // btn_UpdateOrAdd
+            // btnUpdateOrAdd
             // 
-            btn_UpdateOrAdd.Location = new Point(376, 379);
-            btn_UpdateOrAdd.Name = "btn_UpdateOrAdd";
-            btn_UpdateOrAdd.Size = new Size(99, 61);
-            btn_UpdateOrAdd.TabIndex = 8;
-            btn_UpdateOrAdd.Text = "저장";
-            btn_UpdateOrAdd.UseVisualStyleBackColor = true;
-            btn_UpdateOrAdd.Click += btn_UpdateOrAdd_Click;
+            btnUpdateOrAdd.Location = new Point(376, 379);
+            btnUpdateOrAdd.Name = "btnUpdateOrAdd";
+            btnUpdateOrAdd.Size = new Size(99, 61);
+            btnUpdateOrAdd.TabIndex = 8;
+            btnUpdateOrAdd.Text = "저장";
+            btnUpdateOrAdd.UseVisualStyleBackColor = true;
+            btnUpdateOrAdd.Click += btn_UpdateOrAdd_Click;
             // 
-            // btn_close
+            // btnClose
             // 
-            btn_close.Location = new Point(497, 379);
-            btn_close.Name = "btn_close";
-            btn_close.Size = new Size(99, 61);
-            btn_close.TabIndex = 9;
-            btn_close.Text = "취소";
-            btn_close.UseVisualStyleBackColor = true;
-            btn_close.Click += btn_close_Click;
+            btnClose.Location = new Point(497, 379);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(99, 61);
+            btnClose.TabIndex = 9;
+            btnClose.Text = "취소";
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btn_close_Click;
             // 
-            // Update_View
+            // updateView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(620, 457);
-            Controls.Add(btn_close);
-            Controls.Add(btn_UpdateOrAdd);
+            Controls.Add(btnClose);
+            Controls.Add(btnUpdateOrAdd);
             Controls.Add(groupBox1);
-            Controls.Add(mCal_create);
+            Controls.Add(mCalCreate);
             Controls.Add(label3);
-            Controls.Add(txt_Description);
+            Controls.Add(txtDescription);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(txt_Title);
+            Controls.Add(txtTitle);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "Update_View";
+            Name = "updateView";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "할 일 수정";
             Load += Update_Load;
@@ -172,16 +172,16 @@
 
         #endregion
 
-        private TextBox txt_Title;
+        private TextBox txtTitle;
         private Label label1;
         private Label label2;
-        private TextBox txt_Description;
+        private TextBox txtDescription;
         private Label label3;
-        private MonthCalendar mCal_create;
+        private MonthCalendar mCalCreate;
         private GroupBox groupBox1;
-        private RadioButton rdo_false;
-        private RadioButton rdo_true;
-        private Button btn_UpdateOrAdd;
-        private Button btn_close;
+        private RadioButton rdoFalse;
+        private RadioButton rdoTrue;
+        private Button btnUpdateOrAdd;
+        private Button btnClose;
     }
 }
