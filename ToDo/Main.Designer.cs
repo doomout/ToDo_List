@@ -159,6 +159,7 @@
             txtSelect.Name = "txtSelect";
             txtSelect.Size = new Size(286, 23);
             txtSelect.TabIndex = 3;
+            txtSelect.KeyDown += txtSelect_KeyDown;
             // 
             // dgvTodoList
             // 

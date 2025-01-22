@@ -68,7 +68,7 @@ namespace ToDo_List.ToDo
             //true 갯수
             int completedCount = ((DataTable)dgvTodoList.DataSource).AsEnumerable()
                 .Count(row => row.Field<bool>("is_completed"));
-            
+
             //전체 갯수
             int totalCount = dgvTodoList.Rows.Count;
 
@@ -85,7 +85,7 @@ namespace ToDo_List.ToDo
         public void RefreshData()
         {
             // 기존 데이터를 다시 로드하는 메서드 호출
-            TodoList(); 
+            TodoList();
 
             //달성율 계산
             AchievementRate();
@@ -128,7 +128,7 @@ namespace ToDo_List.ToDo
                     {
                         Console.WriteLine("쿼리 실패: " + ex.Message);
                     }
-                    
+
                 }
             }
         }
@@ -226,6 +226,35 @@ namespace ToDo_List.ToDo
                         }
                     }
                 }
+            }
+        }
+
+        private void txtSelect_KeyDown(object sender, KeyEventArgs e)
+        {
+            //검색창에서 엔터키 입력시 검색
+            if (e.KeyCode == Keys.Enter)
+            {
+                Search(txtSelect.Text.Trim());
+            }
+        }
+
+        private void Search(string text)
+        {
+            //검색창에서 검색시 검색 결과만 표시
+            DataTable dataTable = (DataTable)dgvTodoList.DataSource;
+            if (string.IsNullOrEmpty(text))
+            {
+                dgvTodoList.DataSource = dataTable;
+                //검색 결과 없다고 메세지 출력
+                MessageBox.Show("검색 결과가 없습니다.");
+            }
+            else
+            {
+                var query = from row in dataTable.AsEnumerable()
+                            where row.Field<string>("title").Contains(text) || row.Field<string>("description").Contains(text)
+                            select row;
+                DataTable searchResult = query.CopyToDataTable();
+                dgvTodoList.DataSource = searchResult;
             }
         }
     }
