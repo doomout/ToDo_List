@@ -30,6 +30,7 @@ namespace ToDo_List.ToDo
             if (dgvTodoList.IsCurrentCellDirty)
             {
                 dgvTodoList.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                RefreshData();
             }
         }
 
@@ -55,12 +56,39 @@ namespace ToDo_List.ToDo
 
         private void Main_Load(object sender, EventArgs e)
         {
+            //dtpStart는 오늘로 부터 일주일 전, dtpEnd는 오늘로 설정
+            dtpStart.Value = DateTime.Now.AddDays(-7);
+            dtpEnd.Value = DateTime.Now;
+
             RefreshData();
+        }
+
+        private void AchievementRate()
+        {
+            //true 갯수
+            int completedCount = ((DataTable)dgvTodoList.DataSource).AsEnumerable()
+                .Count(row => row.Field<bool>("is_completed"));
+            
+            //전체 갯수
+            int totalCount = dgvTodoList.Rows.Count;
+
+            //달성율 계산
+            int achievementRate = (int)((double)completedCount / totalCount * 100);
+
+            //progressBar에 달성율 표시
+            proARate.Value = achievementRate;
+
+            // Label에 퍼센트 값 표시
+            lblPercent.Text = $"{achievementRate}%";
         }
 
         public void RefreshData()
         {
-            TodoList(); // 기존 데이터를 다시 로드하는 메서드 호출
+            // 기존 데이터를 다시 로드하는 메서드 호출
+            TodoList(); 
+
+            //달성율 계산
+            AchievementRate();
         }
 
         private void TodoList()

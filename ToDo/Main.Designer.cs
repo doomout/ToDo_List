@@ -48,8 +48,9 @@
             btnUserSet = new Button();
             btnLogout = new Button();
             panel1 = new Panel();
+            lblPercent = new Label();
             label5 = new Label();
-            progressBar1 = new ProgressBar();
+            proARate = new ProgressBar();
             panel3 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dgvTodoList).BeginInit();
             panel2.SuspendLayout();
@@ -249,13 +250,24 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(lblPercent);
             panel1.Controls.Add(label5);
-            panel1.Controls.Add(progressBar1);
+            panel1.Controls.Add(proARate);
             panel1.Dock = DockStyle.Bottom;
             panel1.Location = new Point(0, 493);
             panel1.Name = "panel1";
             panel1.Size = new Size(877, 64);
             panel1.TabIndex = 5;
+            // 
+            // lblPercent
+            // 
+            lblPercent.AutoSize = true;
+            lblPercent.BackColor = Color.Yellow;
+            lblPercent.Location = new Point(645, 27);
+            lblPercent.Name = "lblPercent";
+            lblPercent.Size = new Size(24, 15);
+            lblPercent.TabIndex = 2;
+            lblPercent.Text = "0%";
             // 
             // label5
             // 
@@ -266,12 +278,12 @@
             label5.TabIndex = 1;
             label5.Text = "달성율";
             // 
-            // progressBar1
+            // proARate
             // 
-            progressBar1.Location = new Point(459, 23);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(394, 23);
-            progressBar1.TabIndex = 0;
+            proARate.Location = new Point(459, 23);
+            proARate.Name = "proARate";
+            proARate.Size = new Size(394, 23);
+            proARate.TabIndex = 0;
             // 
             // panel3
             // 
@@ -325,12 +337,13 @@
         private Panel panel1;
         private Panel panel3;
         private Label label5;
-        private ProgressBar progressBar1;
+        private ProgressBar proARate;
         private Button btnLogout;
         private Button btnUserSet;
         private DataGridViewCheckBoxColumn is_completed;
         private DataGridViewTextBoxColumn title;
         private DataGridViewTextBoxColumn description;
         private DataGridViewTextBoxColumn created_at;
+        private Label lblPercent;
     }
 }
