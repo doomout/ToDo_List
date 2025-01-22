@@ -60,7 +60,8 @@ namespace ToDo_List.ToDo
             dtpStart.Value = DateTime.Now.AddDays(-7);
             dtpEnd.Value = DateTime.Now;
 
-            RefreshData();
+            // 초기 로드 시 검색 적용
+            Search("", dtpStart.Value, dtpEnd.Value);
         }
 
         private void AchievementRate()
