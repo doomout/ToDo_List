@@ -308,7 +308,7 @@
             MinimizeBox = false;
             Name = "Main";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "메인창";
+            Text = "계획형 인간이 되자!";
             FormClosed += Main_FormClosed;
             Load += Main_Load;
             ((System.ComponentModel.ISupportInitialize)dgvTodoList).EndInit();

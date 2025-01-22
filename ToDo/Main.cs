@@ -61,7 +61,7 @@ namespace ToDo_List.ToDo
             dtpEnd.Value = DateTime.Now;
 
             // 초기 로드 시 검색 적용
-            Search("", dtpStart.Value, dtpEnd.Value);
+            RefreshData();
         }
 
         private void AchievementRate()
@@ -89,53 +89,11 @@ namespace ToDo_List.ToDo
 
         public void RefreshData()
         {
-            // 기존 데이터를 다시 로드하는 메서드 호출
-            TodoList();
+            // 기본적으로 현재 날짜 범위로 검색 수행
+            Search(txtSelect.Text.Trim(), dtpStart.Value, dtpEnd.Value);
 
             //달성율 계산
             AchievementRate();
-        }
-
-        private void TodoList()
-        {
-            //폼 로드시 할 일 목록 불러오기
-            string query = "SELECT id, title, description, is_completed, created_at " +
-                                "FROM todo_list WHERE user_id = @user_id";
-
-            using (var conn = DatabaseManager.GetConnection())
-            {
-                conn.Open();
-                using (var command = conn.CreateCommand())
-                {
-                    command.CommandText = query;
-                    command.Parameters.AddWithValue("user_id", userId); // 로그인한 사용자의 ID
-
-                    try
-                    {
-                        using (var reader = command.ExecuteReader())
-                        {
-                            DataTable dataTable = new DataTable();
-                            dataTable.Columns.Add("id", typeof(int));
-                            dataTable.Columns.Add("is_completed", typeof(bool)); // bool로 명시
-                            dataTable.Columns.Add("title", typeof(string));
-                            dataTable.Columns.Add("description", typeof(string));
-                            dataTable.Columns.Add("created_at", typeof(DateTime));
-                            dataTable.Load(reader);
-
-                            // DataGridView에 데이터 바인딩
-                            dgvTodoList.DataSource = dataTable;
-
-                            ConfigureDataGridView(dgvTodoList);
-                            Console.WriteLine("쿼리 성공: " + query);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine("쿼리 실패: " + ex.Message);
-                    }
-
-                }
-            }
         }
 
         private void ConfigureDataGridView(DataGridView dgv)
