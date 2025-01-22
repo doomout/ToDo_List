@@ -72,8 +72,12 @@ namespace ToDo_List.ToDo
             //전체 갯수
             int totalCount = dgvTodoList.Rows.Count;
 
-            //달성율 계산
-            int achievementRate = (int)((double)completedCount / totalCount * 100);
+            int achievementRate = 0; // 기본값은 0
+
+            if (totalCount > 0) // totalCount가 0이 아닐 때만 계산(0으로 나누는 오류 방지)
+            {
+                achievementRate = (int)((double)completedCount / totalCount * 100);
+            }
 
             //progressBar에 달성율 표시
             proARate.Value = achievementRate;
