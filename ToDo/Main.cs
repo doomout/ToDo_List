@@ -231,31 +231,74 @@ namespace ToDo_List.ToDo
 
         private void txtSelect_KeyDown(object sender, KeyEventArgs e)
         {
-            //검색창에서 엔터키 입력시 검색
             if (e.KeyCode == Keys.Enter)
             {
-                Search(txtSelect.Text.Trim());
+                string searchText = txtSelect.Text.Trim();
+                Search(searchText, dtpStart.Value, dtpEnd.Value);
             }
         }
 
-        private void Search(string text)
+        //검색어와 시작일부터 종료일 사이의 할 일 목록을 검색
+        private void Search(string text, DateTime sDate, DateTime eDate)
         {
-            //검색창에서 검색시 검색 결과만 표시
-            DataTable dataTable = (DataTable)dgvTodoList.DataSource;
-            if (string.IsNullOrEmpty(text))
+            // 검색 쿼리 작성
+            string query = "SELECT id, title, description, is_completed, created_at " +
+                           "FROM todo_list " +
+                           "WHERE user_id = @user_id " +
+                           "AND created_at " +
+                           "BETWEEN @start_date AND @end_date";
+
+            // 검색어가 비어 있지 않은 경우 조건 추가
+            if (!string.IsNullOrEmpty(text))
             {
-                dgvTodoList.DataSource = dataTable;
-                //검색 결과 없다고 메세지 출력
-                MessageBox.Show("검색 결과가 없습니다.");
+                query += " AND (title LIKE @search_text OR description LIKE @search_text)";
             }
-            else
+
+            using (var conn = DatabaseManager.GetConnection())
             {
-                var query = from row in dataTable.AsEnumerable()
-                            where row.Field<string>("title").Contains(text) || row.Field<string>("description").Contains(text)
-                            select row;
-                DataTable searchResult = query.CopyToDataTable();
-                dgvTodoList.DataSource = searchResult;
+                conn.Open();
+                using (var command = conn.CreateCommand())
+                {
+                    command.CommandText = query;
+                    command.Parameters.AddWithValue("user_id", userId);
+                    command.Parameters.AddWithValue("start_date", sDate);
+                    command.Parameters.AddWithValue("end_date", eDate);
+
+                    // 검색어가 있는 경우 파라미터 추가
+                    if (!string.IsNullOrEmpty(text))
+                    {
+                        command.Parameters.AddWithValue("search_text", "%" + text + "%");
+                    }
+
+                    try
+                    {
+                        using (var reader = command.ExecuteReader())
+                        {
+                            DataTable dataTable = new DataTable();
+                            dataTable.Columns.Add("id", typeof(int));
+                            dataTable.Columns.Add("is_completed", typeof(bool));
+                            dataTable.Columns.Add("title", typeof(string));
+                            dataTable.Columns.Add("description", typeof(string));
+                            dataTable.Columns.Add("created_at", typeof(DateTime));
+                            dataTable.Load(reader);
+
+                            // 검색 결과를 DataGridView에 바인딩
+                            dgvTodoList.DataSource = dataTable;
+
+                            ConfigureDataGridView(dgvTodoList);
+                            Console.WriteLine("쿼리 성공: " + command.CommandText);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("쿼리 실패: " + ex.Message);
+                    }
+                }
             }
+
+            // 달성률 계산
+            AchievementRate();
         }
+
     }
 }
